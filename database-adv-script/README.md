@@ -1,7 +1,5 @@
-# Unleashing Advanced Querying Power
+## Task 1 - Practice Subqueries
 
-This project demonstrates advanced SQL JOIN operations on a simulated Airbnb database. It includes:
-
-1. INNER JOIN between `bookings` and `users`
-2. LEFT JOIN between `properties` and `reviews`
-3. FULL OUTER JOIN between `users` and `bookings`
+Includes queries to:
+- Find properties with average rating > 4.0
+- Find users with more than 3 bookings using a correlated subquery
