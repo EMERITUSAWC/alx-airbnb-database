@@ -1,4 +1,3 @@
-
 # Unleashing Advanced Querying Power
 
 This project demonstrates advanced SQL JOIN operations on a simulated Airbnb database. It includes:
