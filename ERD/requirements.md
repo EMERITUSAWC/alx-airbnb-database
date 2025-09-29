@@ -1,33 +1,52 @@
-# Airbnb Clone - ER Diagram Requirements
+# Airbnb Database Entity-Relationship Diagram (ERD)
 
-## Tables Included
-- **User**
-- **Property**
-- **Booking**
-- **Payment**
-- **Review**
-- **Message**
+## Entities and Attributes
 
-## Key Relationships
-- A User (host) can have many Properties
-- A Property can have many Bookings
-- A Booking is made by a User for a Property
-- A Booking can have one Payment
-- A Property can have many Reviews from Users
-- Users can send Messages to other Users
+1. **User**
+   - id (PK)
+   - name
+   - email
+   - phone
+   - created_at
 
-## Constraints
-- All tables use UUIDs as Primary Keys (indexed)
-- Foreign Keys connect User, Property, Booking, and Payment tables
-- ENUM fields used in User (role), Booking (status), and Payment (payment_method)
-- `email` in User is UNIQUE and indexed
-- Ratings in Review are between 1 and 5 (inclusive)
+2. **Property**
+   - id (PK)
+   - host_id (FK: User)
+   - title
+   - description
+   - location
+   - price_per_night
+   - created_at
 
-## Normalization
-- The database follows 3NF
-- No redundant data
-- All relationships handled via foreign keys
+3. **Booking**
+   - id (PK)
+   - user_id (FK: User)
+   - property_id (FK: Property)
+   - start_date
+   - end_date
+   - status
+   - created_at
 
-## Deliverables
-- ER diagram saved as `airbnb_erd.png`
-- Diagram stored in `ERD/` folder along with this file
+4. **Payment**
+   - id (PK)
+   - booking_id (FK: Booking)
+   - amount
+   - paid_at
+   - payment_method
+
+## Relationships
+
+- A User (guest) can have many Bookings.
+- A Property belongs to a User (host).
+- A Booking is for one Property and made by one User.
+- A Payment is for one Booking.
+
+## Diagram
+
+The ER diagram visually shows these tables and relationships. See `erd.png`.
+
+**Assumptions:**
+- A property can have only one host.
+- Users can be both hosts and guests.
+- Each booking must have a payment.
+
